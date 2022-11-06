@@ -6,7 +6,6 @@ import "./Inicio.css";
 function InicioSesion() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [error, setError] = useState("");
   const [status, setStatus] = useState("");
   const [message, setMessage] = useState("");
 
@@ -32,11 +31,6 @@ function InicioSesion() {
       setStatus("ok");
       setMessage(data.message);
     }
-    // if (!res.ok) {
-    //   setError(error.message);
-    // } else {
-    //   setUser(data);
-    // }
   };
 
   if (user) {
@@ -66,20 +60,19 @@ function InicioSesion() {
           />
         </label>
         <button>Inicia sesión</button>
+        {status === "error" && <p className="api">{message}</p>}
+        <p>Si no recuerdas tu contraseña...</p>
         <p>
-          Si no recuerdas tu contraseña...
           <Link to="/nuevaContraseña" className="inicioRegistro">
             Nueva contraseña
           </Link>
         </p>
+        <p>Si aún no tienes cuenta... </p>
         <p>
-          Si aún no tienes cuenta...{" "}
           <Link to="/registro" className="inicioRegistro">
             Regístrate
           </Link>
         </p>
-        {/* {error ? <p>{error.message}</p> : null} */}
-        {status === "error" && <p className="api">{message}</p>}
       </form>
     </section>
   );

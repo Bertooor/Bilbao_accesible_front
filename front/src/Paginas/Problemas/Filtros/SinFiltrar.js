@@ -8,13 +8,12 @@ function SinFiltrar() {
     (async () => {
       const res = await fetch(`http://127.0.0.1:3000/lugares`);
       const data = await res.json();
-      console.log("data", data);
       setProblema(data);
     })();
   }, []);
 
   return (
-    <section>
+    <section className="etiquetas">
       {problema?.data.lugares.map((pro) => (
         <Link to={`/problemas/${pro.id}`} key={pro.id}>
           <div className="tarjeta_problemas">

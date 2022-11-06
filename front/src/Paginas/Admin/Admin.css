@@ -6,6 +6,7 @@
 .zona_admin h2 {
   text-align: center;
   font-size: 3rem;
+  margin: 0 20px;
 }
 
 .zona_admin nav {
@@ -13,6 +14,8 @@
   margin-top: 25px;
   background-color: #428bca;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .zona_admin a {
@@ -50,6 +53,7 @@
 
 .form_nuevo textarea {
   border: 1px solid #428bca;
+  max-width: 80vw;
 }
 
 .form_nuevo button {
@@ -66,7 +70,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .imagenes_button {
@@ -116,4 +120,34 @@
   color: red;
   font-size: 2rem;
   text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .imagenes {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1000px) {
+  .zona_admin nav {
+    flex-wrap: wrap;
+  }
+
+  .zona_admin {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .zona_admin {
+    margin-top: 100px;
+  }
+
+  .zona_admin h2 {
+    font-size: 2rem;
+  }
+
+  .imagenes img {
+    width: 320px;
+  }
 }

@@ -29,7 +29,8 @@
 }
 
 .form_registro p {
-  margin-top: 30px;
+  margin: 30px;
+  text-align: center;
 }
 
 .form_registro button {

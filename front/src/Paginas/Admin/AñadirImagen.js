@@ -31,6 +31,7 @@ function AñadirImagen() {
     } else {
       setStatus("ok");
       setMessage(data.message);
+      setPhoto();
     }
   };
 

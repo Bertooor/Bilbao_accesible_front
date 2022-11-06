@@ -14,7 +14,6 @@ function Problema() {
     (async () => {
       const res = await fetch(`http://127.0.0.1:3000/lugares/${id}`);
       const data = await res.json();
-      console.log("data", data);
       setMessage(data);
       setStatus(data);
       setProblema(data);
@@ -38,9 +37,7 @@ function Problema() {
               />
             ))}
           </section>
-          <p className="descripcion">
-            <pre>{problema.data.descripción}</pre>
-          </p>
+          <p className="descripcion">{problema.data.descripción}</p>
           <Denuncia />
           <p className="api">
             {!user && "Debes registrarte para poder denunciar problemas."}

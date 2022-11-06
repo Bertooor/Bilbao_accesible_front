@@ -4,13 +4,11 @@ import { useState } from "react";
 
 function EditarUsuario() {
   const user = useUser();
-  console.log("user", user);
   const usuario = useFetch("http://127.0.0.1:3000/usuarios/" + user.data.id, {
     headers: {
       Authorization: user.data.token,
     },
   });
-  console.log("usuario", usuario);
   const [avatar, setAvatar] = useState(usuario.data.avatar);
   const [email, setEmail] = useState(usuario.data.email);
   const [status, setStatus] = useState("");

@@ -13,7 +13,6 @@ function Denuncia() {
     (async () => {
       const res = await fetch(`http://127.0.0.1:3000/lugares/${id}`);
       const data = await res.json();
-      console.log("denuncia", data);
       setDenuncia(data.data.denuncias_lugar);
     })();
   }, [id]);
@@ -32,7 +31,6 @@ function Denuncia() {
       }),
     });
     const data = await res.json();
-    console.log("despuesDenuncia", data);
     if (data.status === "error") {
       setStatus("error");
       setMessage(data.message);
@@ -49,7 +47,6 @@ function Denuncia() {
       </p>
       <button onClick={handleClick}>Denuncia este problema</button>
       {status === "error" && <p className="api">{message}</p>}
-      {!user && "Debes registrarte para poder denunciar problemas."}
     </section>
   );
 }

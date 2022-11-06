@@ -9,9 +9,9 @@
   align-items: center;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   left: 0;
-  padding: 0 1rem;
+  padding: 0 2rem;
   background-color: white;
   border: 1px solid #428bca;
   box-shadow: -5px 5px 5px 0px #2a2c31;
@@ -43,4 +43,31 @@
 
 .registro {
   margin-right: 20px;
+}
+
+@media (max-width: 750px) {
+  .cabecera_principal {
+    justify-content: space-around;
+  }
+
+  .cabecera_principal h1 {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .cabecera_principal {
+    padding: 0 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
 }

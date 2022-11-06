@@ -12,6 +12,9 @@ function EditarDatosProblema() {
   const [city, setCity] = useState(problema.data.ciudad);
   const [distric, setDistric] = useState(problema.data.barrio);
   const [description, setDescription] = useState(problema.data.descripción);
+  const [problem_solved, setProblem_solved] = useState(
+    problema.data.problema_resuelto
+  );
 
   const [status, setStatus] = useState("");
   const [message, setMessage] = useState("");
@@ -25,6 +28,7 @@ function EditarDatosProblema() {
     formData.append("city", city);
     formData.append("distric", distric);
     formData.append("description", description);
+    formData.append("problem_solved", problem_solved ? "1" : "0");
 
     const res = await fetch("http://127.0.0.1:3000/lugares/" + id, {
       method: "PUT",
@@ -34,17 +38,12 @@ function EditarDatosProblema() {
       body: formData,
     });
     const data = await res.json();
-    console.log("boolean", data);
     if (data.status === "error") {
       setStatus("error");
       setMessage(data.message);
     } else {
       setStatus("ok");
       setMessage(data.message);
-      setTitle("");
-      setCity("");
-      setDistric("");
-      setDescription("");
     }
   };
 
@@ -82,15 +81,22 @@ function EditarDatosProblema() {
         <label>
           <span>Descripción</span>
           <textarea
-            rows="20"
-            cols="100"
+            cols={30}
             required
             name="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-
+        <label>
+          <span>Problema resuelto</span>
+          <input
+            type="checkbox"
+            name="problem_solved"
+            checked={problem_solved}
+            onChange={(e) => setProblem_solved(e.target.checked)}
+          />
+        </label>
         <button>Sustituir</button>
         {status === "error" && <p className="api">{message}</p>}
         {status === "ok" && <p className="api">{message}</p>}

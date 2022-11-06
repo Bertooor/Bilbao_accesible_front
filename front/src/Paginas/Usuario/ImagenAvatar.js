@@ -5,8 +5,7 @@ import "../../Cabecera/Cabecera.css";
 function ImagenAvatar() {
   const user = useUser();
   const [avatar, setAvatar] = useState();
-  console.log("context", user);
-  console.log("id", user.data.id);
+
   const imagenDefecto = (
     <img
       className="avatar"
@@ -27,12 +26,10 @@ function ImagenAvatar() {
       );
       const data = await res.json();
       setAvatar(data);
-      console.log("nuevoavatar", data);
     })();
   }, [user.data.token, user.data.id]);
 
   if (!avatar?.data) return imagenDefecto;
-  console.log("avatar", avatar);
   return (
     <div>
       {!avatar.data ? (

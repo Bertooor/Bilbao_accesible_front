@@ -12,7 +12,6 @@ import ListaBorrarProblema from "./ListaBorrarProblema";
 
 function Admin() {
   const user = useUser();
-  console.log("buscoadmin", user);
   if (user?.data.role === "admin") {
     return (
       <section className="zona_admin">

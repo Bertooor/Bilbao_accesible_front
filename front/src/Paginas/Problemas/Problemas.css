@@ -6,7 +6,7 @@
 
 .problemas h2 {
   text-align: center;
-  margin-top: 50px;
+  margin: 50px 20px 0 20px;
   font-size: 3rem;
 }
 
@@ -53,7 +53,18 @@
   padding: 1rem;
   display: flex;
   justify-content: center;
-  /* flex-direction: column; */
+}
+
+.zona_filtro button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.zona_filtro button img {
+  width: 40px;
+  height: 40px;
 }
 
 .zona_filtro a {
@@ -88,6 +99,8 @@
 
 .problema img {
   margin: 10px;
+  max-width: 380px;
+  height: 250px;
 }
 
 .problema span {
@@ -108,10 +121,60 @@
 
 p.descripcion {
   font-size: 1rem;
+  margin: 0 10%;
+  text-align: left;
 }
 
 .zona_denuncias {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .problemas,
+  .problema {
+    text-align: center;
+  }
+
+  .zona_filtro nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .problema,
+  .problemas {
+    margin-top: 50px;
+  }
+
+  .problema img {
+    width: 290px;
+  }
+
+  .tarjeta_problemas {
+    width: 320px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .tarjeta_problemas img {
+    width: 290px;
+    margin-left: 0;
+  }
+
+  .problemas h2,
+  .problema h2 {
+    font-size: 2rem;
+    margin-top: 50px;
+  }
+
+  .zona_filtro {
+    margin-top: 20px;
+  }
+
+  .zona_filtro a {
+    margin: 5px;
+    font-size: 0.9rem;
+  }
 }

@@ -21,7 +21,6 @@ function Registro() {
       }),
     });
     const data = await res.json();
-    console.log("data", data);
     if (data.status === "error") {
       setStatus("error");
       setMessage(data.message);
@@ -68,9 +67,11 @@ function Registro() {
         <p>
           Después de registrarte y validar tu usuario en tu correo
           electrónico...
-          <Link to="/sesion" className="iniciaSesion">
-            Inicia sesión
-          </Link>
+          <p>
+            <Link to="/sesion" className="iniciaSesion">
+              Inicia sesión
+            </Link>
+          </p>
         </p>
       </form>
     </section>

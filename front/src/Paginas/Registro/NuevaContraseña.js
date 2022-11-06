@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useUser, useSetUser } from "../../UserContext";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NuevaContraseña() {
   const [email, setEmail] = useState("");
@@ -10,9 +9,6 @@ function NuevaContraseña() {
   const [message, setMessage] = useState("");
   const [estado, setEstado] = useState("");
   const [mensaje, setMensaje] = useState("");
-
-  const user = useUser();
-  const setUser = useSetUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -101,9 +97,11 @@ function NuevaContraseña() {
         {estado === "ok" && <p className="api">{mensaje}</p>}
         <p>
           Si has completado ambos pasos...
-          <Link to="/sesion" className="inicioRegistro">
-            Inicia sesión
-          </Link>
+          <p>
+            <Link to="/sesion" className="inicioRegistro">
+              Inicia sesión
+            </Link>
+          </p>
         </p>
       </form>
     </section>

@@ -8,7 +8,6 @@ function Deusto() {
     (async () => {
       const res = await fetch(`http://127.0.0.1:3000/lugares`);
       const data = await res.json();
-      console.log("data", data);
       setProblema(data);
     })();
   }, []);

@@ -41,7 +41,8 @@
 }
 
 .form_inicio p {
-  margin-top: 30px;
+  line-height: 2rem;
+  text-align: center;
 }
 
 .form_inicio button {

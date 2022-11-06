@@ -9,23 +9,18 @@ function ListaBorrarProblema() {
     (async () => {
       const res = await fetch(`http://127.0.0.1:3000/lugares`);
       const data = await res.json();
-      console.log("data", data);
       setProblema(data.data.lugares);
     })();
   }, []);
 
   const borrarProblema = async (id) => {
-    const res = await fetch(`http://127.0.0.1:3000/lugares/${id}`, {
+    await fetch(`http://127.0.0.1:3000/lugares/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: user.data.token,
       },
     });
 
-    const data = await res.json();
-
-    console.log("borrarProblema", data);
-    console.log("problema", problema);
     setProblema(problema.filter((prob) => prob.id !== id));
   };
 

@@ -19,7 +19,6 @@ function BorrarAvatar() {
         }
       );
       const data = await res.json();
-      console.log("ahora", data);
       setAvatar(data);
     })();
   }, [user.data.id, user.data.token]);
@@ -37,7 +36,6 @@ function BorrarAvatar() {
       }
     );
     const data = await res.json();
-    console.log("ahora2", data);
     if (data.status === "error") {
       setStatus("error");
       setMessage(data.message);

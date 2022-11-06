@@ -13,6 +13,8 @@
   margin-top: 25px;
   background-color: #428bca;
   padding: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .zona_usuario a {
@@ -84,4 +86,16 @@
   font-size: 1.5rem;
   width: 20%;
   cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .zona_usuario nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .borrar_usuario button {
+    font-size: 0.7rem;
+  }
 }
