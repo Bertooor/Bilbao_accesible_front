@@ -12,7 +12,7 @@ function Problema() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://127.0.0.1:3000/lugares/${id}`);
+      const res = await fetch(`${process.env.REACT_APP_API}/lugares/${id}`);
       const data = await res.json();
       setMessage(data);
       setStatus(data);
@@ -31,7 +31,7 @@ function Problema() {
           <section>
             {problema.data.imagenes.map((pro, index) => (
               <img
-                src={`http://127.0.0.1:3000/${pro.imagen}`}
+                src={`${process.env.REACT_APP_API}/${pro.imagen}`}
                 alt="imagen"
                 key={index}
               />

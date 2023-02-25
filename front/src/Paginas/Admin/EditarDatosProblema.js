@@ -6,7 +6,7 @@ import useFetch from "fetch-suspense";
 function EditarDatosProblema() {
   const user = useUser();
   const { id } = useParams();
-  const problema = useFetch("http://127.0.0.1:3000/lugares/" + id);
+  const problema = useFetch(`${process.env.REACT_APP_API}/lugares/` + id);
 
   const [title, setTitle] = useState(problema.data.título);
   const [city, setCity] = useState(problema.data.ciudad);
@@ -30,7 +30,7 @@ function EditarDatosProblema() {
     formData.append("description", description);
     formData.append("problem_solved", problem_solved ? "1" : "0");
 
-    const res = await fetch("http://127.0.0.1:3000/lugares/" + id, {
+    const res = await fetch(`${process.env.REACT_APP_API}/lugares/` + id, {
       method: "PUT",
       headers: {
         Authorization: user.data.token,

@@ -7,14 +7,14 @@ function ListaBorrarProblema() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://127.0.0.1:3000/lugares`);
+      const res = await fetch(`${process.env.REACT_APP_API}/lugares`);
       const data = await res.json();
       setProblema(data.data.lugares);
     })();
   }, []);
 
   const borrarProblema = async (id) => {
-    await fetch(`http://127.0.0.1:3000/lugares/${id}`, {
+    await fetch(`${process.env.REACT_APP_API}/lugares/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: user.data.token,
@@ -29,7 +29,10 @@ function ListaBorrarProblema() {
       {problema?.map((pro) => (
         <div className="tarjeta_problemas" key={pro.id}>
           <h3>{pro.título}</h3>
-          <img src={`http://127.0.0.1:3000/${pro.portada}`} alt="imagen" />
+          <img
+            src={`${process.env.REACT_APP_API}/${pro.portada}`}
+            alt="imagen"
+          />
           <p>
             <button
               onClick={() => {

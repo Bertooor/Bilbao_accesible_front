@@ -17,7 +17,7 @@ function ImagenAvatar() {
   useEffect(() => {
     (async () => {
       const res = await fetch(
-        `http://127.0.0.1:3000/usuarios/${user.data.id}/imagen`,
+        `${process.env.REACT_APP_API}/usuarios/${user.data.id}/imagen`,
         {
           headers: {
             Authorization: user.data.token,
@@ -40,7 +40,7 @@ function ImagenAvatar() {
         />
       ) : (
         <img
-          src={`http://127.0.0.1:3000/${avatar.data.imagen}`}
+          src={`${process.env.REACT_APP_API}/${avatar.data.imagen}`}
           alt="imagen"
           className="avatar"
         />

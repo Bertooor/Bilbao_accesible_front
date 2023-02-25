@@ -4,11 +4,14 @@ import { useState } from "react";
 
 function EditarUsuario() {
   const user = useUser();
-  const usuario = useFetch("http://127.0.0.1:3000/usuarios/" + user.data.id, {
-    headers: {
-      Authorization: user.data.token,
-    },
-  });
+  const usuario = useFetch(
+    `${process.env.REACT_APP_API}/usuarios/` + user.data.id,
+    {
+      headers: {
+        Authorization: user.data.token,
+      },
+    }
+  );
   const [avatar, setAvatar] = useState(usuario.data.avatar);
   const [email, setEmail] = useState(usuario.data.email);
   const [status, setStatus] = useState("");
@@ -22,13 +25,16 @@ function EditarUsuario() {
     formData.append("avatar", avatar);
     formData.append("email", email);
 
-    const res = await fetch("http://127.0.0.1:3000/usuarios/" + user.data.id, {
-      method: "PUT",
-      headers: {
-        Authorization: user.data.token,
-      },
-      body: formData,
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_API}/usuarios/` + user.data.id,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: user.data.token,
+        },
+        body: formData,
+      }
+    );
     const data = await res.json();
     if (data.status === "error") {
       setStatus("error");

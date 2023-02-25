@@ -16,7 +16,7 @@ function Avatar() {
     formData.append("avatar", avatar);
 
     const res = await fetch(
-      `http://127.0.0.1:3000/usuarios/${user.data.id}/avatar`,
+      `${process.env.REACT_APP_API}/usuarios/${user.data.id}/avatar`,
       {
         method: "POST",
         headers: {

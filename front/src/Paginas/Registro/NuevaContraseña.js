@@ -13,7 +13,7 @@ function NuevaContraseña() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `http://127.0.0.1:3000/usuarios/recuperaContrasena`,
+      `${process.env.REACT_APP_API}/usuarios/recuperaContrasena`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -34,14 +34,17 @@ function NuevaContraseña() {
 
   const handleSubmit2 = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://127.0.0.1:3000/usuarios/nuevaContrasena`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        recoverCode,
-        nuevaContrasena,
-      }),
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_API}/usuarios/nuevaContrasena`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          recoverCode,
+          nuevaContrasena,
+        }),
+      }
+    );
     const data = await res.json();
     if (data.status === "error") {
       setEstado("error");

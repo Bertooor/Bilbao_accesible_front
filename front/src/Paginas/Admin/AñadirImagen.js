@@ -17,13 +17,16 @@ function AñadirImagen() {
 
     formData.append("photo", photo);
 
-    const res = await fetch(`http://127.0.0.1:3000/lugares/${id}/imagenes`, {
-      method: "POST",
-      headers: {
-        Authorization: user.data.token,
-      },
-      body: formData,
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_API}/lugares/${id}/imagenes`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: user.data.token,
+        },
+        body: formData,
+      }
+    );
     const data = await res.json();
     if (data.status === "error") {
       setStatus("error");

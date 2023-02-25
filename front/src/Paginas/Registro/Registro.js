@@ -11,7 +11,7 @@ function Registro() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://127.0.0.1:3000/usuarios`, {
+    const res = await fetch(`${process.env.REACT_APP_API}/usuarios`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

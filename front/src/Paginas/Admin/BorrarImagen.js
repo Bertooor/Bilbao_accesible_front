@@ -12,7 +12,7 @@ function BorrarImagen() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://127.0.0.1:3000/lugares/${id}`);
+      const res = await fetch(`${process.env.REACT_APP_API}/lugares/${id}`);
       const data = await res.json();
       setImagenes(data.data.imagenes);
     })();
@@ -20,7 +20,7 @@ function BorrarImagen() {
 
   const borrandoImagen = async (imgId) => {
     const res = await fetch(
-      `http://127.0.0.1:3000/lugares/${id}/imagenes/${imgId}`,
+      `${process.env.REACT_APP_API}/lugares/${id}/imagenes/${imgId}`,
       {
         method: "DELETE",
         headers: {
@@ -47,7 +47,10 @@ function BorrarImagen() {
         <div className="imagenes">
           {imagenes.map((pro) => (
             <div key={pro.id} className="imagenes_button">
-              <img src={`http://127.0.0.1:3000/${pro.imagen}`} alt="imagen" />
+              <img
+                src={`${process.env.REACT_APP_API}/${pro.imagen}`}
+                alt="imagen"
+              />
               <button
                 onClick={() => {
                   borrandoImagen(pro.id);

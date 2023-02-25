@@ -11,7 +11,7 @@ function Denuncia() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://127.0.0.1:3000/lugares/${id}`);
+      const res = await fetch(`${process.env.REACT_APP_API}/lugares/${id}`);
       const data = await res.json();
       setDenuncia(data.data.denuncias_lugar);
     })();
@@ -20,7 +20,7 @@ function Denuncia() {
   const handleClick = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://127.0.0.1:3000/lugares/" + id, {
+    const res = await fetch(`${process.env.REACT_APP_API}/lugares/` + id, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

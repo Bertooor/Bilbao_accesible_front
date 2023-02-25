@@ -7,12 +7,15 @@ function BorrarUsuario() {
   const [message, setMessage] = useState("");
 
   const borrarUsuario = async () => {
-    const res = await fetch(`http://127.0.0.1:3000/usuarios/${user.data.id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: user.data.token,
-      },
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_API}/usuarios/${user.data.id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: user.data.token,
+        },
+      }
+    );
     const data = await res.json();
     console.log("borrarUsuario", data);
     if (data.status === "error") {

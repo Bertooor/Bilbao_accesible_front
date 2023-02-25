@@ -27,7 +27,7 @@ function NuevoProblema() {
     formData.append("photo1", photo1);
     formData.append("photo2", photo2);
 
-    const res = await fetch("http://127.0.0.1:3000/lugares", {
+    const res = await fetch(`${process.env.REACT_APP_API}/lugares`, {
       method: "POST",
       headers: {
         Authorization: user.data.token,

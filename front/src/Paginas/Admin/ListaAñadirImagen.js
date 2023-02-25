@@ -6,7 +6,7 @@ function ListaAñadirImagen() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`http://127.0.0.1:3000/lugares`);
+      const res = await fetch(`${process.env.REACT_APP_API}/lugares`);
       const data = await res.json();
       setProblema(data);
     })();
@@ -18,7 +18,10 @@ function ListaAñadirImagen() {
         <Link to={`/admin/añadirImagen/${pro.id}`} key={pro.id}>
           <div className="tarjeta_problemas">
             <h3>{pro.título}</h3>
-            <img src={`http://127.0.0.1:3000/${pro.portada}`} alt="imagen" />
+            <img
+              src={`${process.env.REACT_APP_API}/${pro.portada}`}
+              alt="imagen"
+            />
             <h4>{pro.barrio}</h4>
           </div>
         </Link>

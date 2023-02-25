@@ -14,7 +14,7 @@ function InicioSesion() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://127.0.0.1:3000/usuarios/login`, {
+    const res = await fetch(`${process.env.REACT_APP_API}/usuarios/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

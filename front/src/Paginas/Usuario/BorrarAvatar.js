@@ -11,7 +11,7 @@ function BorrarAvatar() {
   useEffect(() => {
     (async () => {
       const res = await fetch(
-        `http://127.0.0.1:3000/usuarios/${user.data.id}/imagen`,
+        `${process.env.REACT_APP_API}/usuarios/${user.data.id}/imagen`,
         {
           headers: {
             Authorization: user.data.token,
@@ -26,7 +26,7 @@ function BorrarAvatar() {
   const borrandoAvatar = async (e) => {
     const res = await fetch(
       `
-      http://127.0.0.1:3000/usuarios/${user.data.id}/avatar/${avatar.data.imagen_id}
+      ${process.env.REACT_APP_API}/usuarios/${user.data.id}/avatar/${avatar.data.imagen_id}
     `,
       {
         method: "DELETE",
